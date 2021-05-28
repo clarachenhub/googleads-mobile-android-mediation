@@ -168,7 +168,8 @@ public class TapjoyRewardedRenderer implements MediationRewardedAd, TJPlacementV
             mPlacementsInUse.remove(placementName);
 
             AdError error = new AdError(tjError.code, tjError.message, TAPJOY_SDK_ERROR_DOMAIN);
-            Log.e(TAG, error.getMessage());
+            String errorMessage = "Tapjoy Rewarded Ad request failed for placement: "+tjPlacement.getName() + "Reason: "+ error.getMessage();
+            Log.e(TAG,errorMessage);
             if (mAdLoadCallback != null) {
               mAdLoadCallback.onFailure(error);
             }
